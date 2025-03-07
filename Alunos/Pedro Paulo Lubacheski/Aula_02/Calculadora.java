@@ -1,8 +1,10 @@
+
 import java.util.Scanner;
 
 public class Calculadora {
+
     public static void main(String[] args) {
-        
+
         Scanner scanner = new Scanner(System.in);
         boolean menu = true;
 
@@ -10,10 +12,10 @@ public class Calculadora {
             System.out.println("[1] - Calcular Preço Total");
             System.out.println("[2] - Calcular Troco");
             System.out.println("[3] - Sair");
-            
-            int escolha = scanner.nextInt(); 
 
-            switch(escolha) {
+            int escolha = scanner.nextInt();
+
+            switch (escolha) {
                 case 1:
                     precoTotal();
                     break;
@@ -27,9 +29,9 @@ public class Calculadora {
                     System.out.println("Erro! Digite uma opção válida!");
             }
         }
-    }   
+    }
 
-    public static void precoTotal(){
+    public static void precoTotal() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite o preço do produto: ");
@@ -40,7 +42,7 @@ public class Calculadora {
         System.out.println("O preço total é: " + total);
     }
 
-    public static void troco(){
+    public static void troco() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite o valor do produto: ");
