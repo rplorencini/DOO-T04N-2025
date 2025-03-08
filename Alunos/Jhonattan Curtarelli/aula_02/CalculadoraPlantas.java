@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class Main {
+public class CalculadoraPlantas {
     public static void calculaPrecoTotal(Scanner sc)
     {
         System.out.println("Insira a quantidade da planta referida");
@@ -29,6 +29,7 @@ public class Main {
                 "3 - Sair\n"
         );
         int option = sc.nextInt();
+
         switch(option)
         {
             case 1:
