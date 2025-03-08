@@ -1,3 +1,6 @@
+import src.Entities.Budget;
+import src.Services.DiscountCalculator;
+
 import java.math.BigDecimal;
 import java.util.Scanner;
 
@@ -8,8 +11,13 @@ public class CalculadoraPlantas {
         int quantidade = sc.nextInt();
         System.out.println("Insira o preço da planta referida");
         BigDecimal preco = sc.nextBigDecimal();
+        Budget budget = new Budget(preco,quantidade);
+        DiscountCalculator discountCalculator = new DiscountCalculator();
         System.out.println("Quantidade: " + quantidade + " Preço: " + preco);
-        System.out.println("O Preço total é: R$ " + preco.multiply(new BigDecimal(quantidade)));
+        System.out.println(
+                "O Preço total é: R$ " +
+                        discountCalculator.calculate(budget)
+        );
     }
     public static void calculaTroco(Scanner sc)
     {

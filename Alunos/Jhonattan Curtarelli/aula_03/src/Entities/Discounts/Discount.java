@@ -1,15 +1,14 @@
 package src.Entities.Discounts;
 
 import src.Entities.Budget;
-
 import java.math.BigDecimal;
 
-abstract public class Discount {
+public abstract class Discount {
     protected Discount next;
-    public Discount(Discount? next)
-    {
+
+    public Discount(Discount next) {
         this.next = next;
     }
-    abstract public BigDecimal calculate(Budget value);
 
+    public abstract BigDecimal calculate(Budget value);
 }

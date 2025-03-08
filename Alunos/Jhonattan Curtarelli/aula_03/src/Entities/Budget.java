@@ -7,9 +7,10 @@ public class Budget
     private BigDecimal value;
     public int items;
 
-    public Budget(BigDecimal value)
+    public Budget(BigDecimal value,int items)
     {
         this.value = value;
+        this.items = items;
     }
 
     public BigDecimal getValue()
