@@ -26,8 +26,4 @@ public class Budget
     {
         this.total = total;
     }
-    @Override
-    public String toString() {
-        return  value +";"+ items+";"+total;
-    }
 }

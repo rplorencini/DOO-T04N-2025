@@ -2,7 +2,8 @@ package src.Services;
 
 import src.Entities.Budget;
 import src.Entities.Change;
-import src.Repositories.File.CalculatorRepository;
+import src.Interfaces.ICalculatorRepository;
+import src.Repositories.Stack.CalculatorRepository;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -11,19 +12,24 @@ import java.util.List;
 public class Calculator
 {
     private final DiscountCalculator discountCalculator;
-    private CalculatorRepository calculatorRepository;
-    public Calculator() throws IOException {
+    private final ICalculatorRepository calculatorRepository;
+    public Calculator() {
         this.discountCalculator = new DiscountCalculator();
         this.calculatorRepository = new CalculatorRepository();
     }
-    public BigDecimal CalculateTotalPrice(Budget budget) throws IOException {
+    public BigDecimal CalculateTotalPrice(Budget budget) {
         BigDecimal discountValue = this.discountCalculator.calculate(budget);
-        BigDecimal result = budget.total.subtract(discountValue);
+        BigDecimal result = budget.total;
+        if(discountValue != null)
+        {
+            result = budget.total.subtract(discountValue);
+        }
+
         budget.setTotal(result);
         this.calculatorRepository.SaveBudget(budget);
         return result;
     }
-    public List<Budget> GetBudgetsHistory() throws IOException {
+    public List<Budget> GetBudgetsHistory() {
         return this.calculatorRepository.GetBudgets();
     }
     public BigDecimal CalculateChange(BigDecimal recivedPrice, BigDecimal totalPrice)

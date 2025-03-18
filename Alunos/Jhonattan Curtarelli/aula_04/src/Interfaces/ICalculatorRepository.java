@@ -4,7 +4,7 @@ import src.Entities.Budget;
 
 import java.util.List;
 
-public interface CalculatorRepository {
+public interface ICalculatorRepository {
     public boolean SaveBudget(Budget budget);
     public List<Budget> GetBudgets();
 }

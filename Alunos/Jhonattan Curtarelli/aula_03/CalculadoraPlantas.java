@@ -78,28 +78,28 @@ public class CalculadoraPlantas {
         {
             case 1:
                 this.CalculateTotalPrice();
-                menu();
+                Menu();
                 break;
             case 2:
                 System.out.println("Calcular Preço Total");
                 this.CalculateChange();
-                menu();
+                Menu();
                 break;
             case 3:
                 this.GetBudgetsHistory();
-                menu();
+                Menu();
                 break;
             case 4:
                 System.out.println("Sair");
                 break;
             default:
                 System.out.println("Opção inválida");
-                menu();
+                Menu();
                 break;
         }
     }
     public static void main(String[] args) throws IOException {
         CalculadoraPlantas calc = new CalculadoraPlantas();
-        calc.menu();
+        calc.Menu();
     }
 }

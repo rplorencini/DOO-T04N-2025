@@ -1,6 +1,6 @@
+import Utils.Stack;
 import src.Entities.Budget;
 import src.Services.Calculator;
-import src.Services.DiscountCalculator;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class CalculadoraPlantas {
     private Calculator calculator;
     private Scanner sc = new Scanner(System.in);
-    public CalculadoraPlantas() throws IOException {
+    public CalculadoraPlantas() {
         this.calculator = new Calculator();
     }
     public void CalculateTotalPrice()
@@ -19,18 +19,14 @@ public class CalculadoraPlantas {
         int quantity = sc.nextInt();
         System.out.println("Insira o preço da planta referida");
         BigDecimal price = sc.nextBigDecimal();
-        try{
-            BigDecimal totalPrice = this.calculator.CalculateTotalPrice(
-                    new Budget(price, quantity)
-            );
-            System.out.println("Quantidade: " + quantity + " Preço: " + price);
-            System.out.println(
-                    "O Preço total é: R$ " +
-                            totalPrice
-            );
-        } catch (Exception e) {
-            System.out.println(e.getMessage() + " - " + e.getCause());
-        }
+        BigDecimal totalPrice = this.calculator.CalculateTotalPrice(
+                new Budget(price, quantity)
+        );
+        System.out.println("Quantidade: " + quantity + " Preço: " + price);
+        System.out.println(
+                "O Preço total é: R$ " +
+                        totalPrice
+        );
     }
     public void CalculateChange()
     {
@@ -63,7 +59,7 @@ public class CalculadoraPlantas {
             System.out.println(e.getMessage() + " - " + e.getCause());
         }
     }
-    public void menu ()
+    public void Menu()
     {
         System.out.println(
                 "------------------------ MENU ------------------------\n" +
@@ -78,28 +74,29 @@ public class CalculadoraPlantas {
         {
             case 1:
                 this.CalculateTotalPrice();
-                menu();
+                Menu();
                 break;
             case 2:
                 System.out.println("Calcular Preço Total");
                 this.CalculateChange();
-                menu();
+                Menu();
                 break;
             case 3:
                 this.GetBudgetsHistory();
-                menu();
+                Menu();
                 break;
             case 4:
                 System.out.println("Sair");
                 break;
             default:
                 System.out.println("Opção inválida");
-                menu();
+                Menu();
                 break;
         }
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        System.out.println(new Stack());
         CalculadoraPlantas calc = new CalculadoraPlantas();
-        calc.menu();
+        calc.Menu();
     }
 }

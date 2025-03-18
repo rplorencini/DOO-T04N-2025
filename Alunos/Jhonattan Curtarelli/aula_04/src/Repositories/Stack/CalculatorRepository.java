@@ -5,16 +5,16 @@ import src.Entities.Budget;
 
 import java.util.List;
 
-public class CalculatorRepository implements src.Interfaces.CalculatorRepository {
-    private Stack stack;
+public class CalculatorRepository implements src.Interfaces.ICalculatorRepository {
+    private final Stack stack;
     public CalculatorRepository(
-            Stack stack
     ) {
-        this.stack = stack;
+        this.stack = new Stack();
     }
     @Override
     public boolean SaveBudget(Budget budget) {
-        return false;
+        this.stack.addBudget(budget);
+        return true;
     }
 
     @Override
