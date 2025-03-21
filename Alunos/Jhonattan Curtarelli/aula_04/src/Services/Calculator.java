@@ -7,6 +7,7 @@ import src.Repositories.Stack.CalculatorRepository;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Calculator
@@ -36,6 +37,14 @@ public class Calculator
     {
         Change change = new Change(recivedPrice, totalPrice);
         return change.CalculateChange();
+    }
+    public BigDecimal GetTotalSalesByDate(LocalDate date)
+    {
+        return this.calculatorRepository.GetTotalSalesByDate(date);
+    }
+    public BigDecimal GetTotalsByDateInterval(LocalDate startDate, LocalDate endDate)
+    {
+        return this.calculatorRepository.GetTotalsByDateInterval(startDate, endDate);
     }
 
 }
