@@ -6,10 +6,10 @@ public class CalculadoraAntiquada {
     public static void main(String[] args) {
         int opcao = 0;
         int contador = 0;
-        Map<String, Double> vendasDiarias = new HashMap<>(); // Map para armazenar vendas por dia (mês-dia)
+        Map<String, Double> vendasDiarias = new HashMap<>(); 
         Scanner scanner = new Scanner(System.in);
         
-        while (opcao != 5) { // Adicionando uma nova opção para sair
+        while (opcao != 5) {
             System.out.println("1- Cálculo de preço total \n2- Calculo de troco \n3- Registro de compras \n4- Buscar vendas por dia \n5- Sair"); 
             opcao = scanner.nextInt();
         
@@ -92,7 +92,6 @@ public class CalculadoraAntiquada {
         scanner.close();
     }
 
-    // Função para registrar vendas
     public static void registroVenda(int qtdPlantas, double valorTotal, Map<String, Double> vendasDiarias, String data) {
         if (vendasDiarias.containsKey(data)) {
             vendasDiarias.put(data, vendasDiarias.get(data) + valorTotal);
@@ -101,7 +100,6 @@ public class CalculadoraAntiquada {
         }
     }
 
-    // Função para buscar vendas por dia
     public static void buscarVendasPorDia(Map<String, Double> vendasDiarias, String data) {
         if (vendasDiarias.containsKey(data)) {
             System.out.println("Vendas no dia " + data + ": " + vendasDiarias.get(data));
