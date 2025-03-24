@@ -7,14 +7,50 @@ Os paradigmas de programação se dividem em várias categorias, destacando-se o
 ### Java (Imperativo)
 
 ```java
-while (menu) {
-    System.out.println("[1] - Calcular Preço Total");
-    int escolha = scanner.nextInt();
-    switch (escolha) {
-        case 1: precoTotal(); break;
-        case 2: troco(); break;
-        case 3: menu = false; break;
-        default: System.out.println("Opção inválida!");
+public class Calculadora {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean menu = true;
+
+        while (menu) {
+            System.out.println("[1] - Calcular Preço Total");
+            System.out.println("[2] - Calcular Troco");
+            System.out.println("[3] - Sair");
+            int escolha = scanner.nextInt();
+
+            switch (escolha) {
+                case 1:
+                    calcularPrecoTotal(scanner);
+                    break;
+                case 2:
+                    calcularTroco(scanner);
+                    break;
+                case 3:
+                    menu = false;
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        }
+        scanner.close();
+    }
+
+    public static void calcularPrecoTotal(Scanner scanner) {
+        System.out.print("Digite o preço unitário: ");
+        double preco = scanner.nextDouble();
+        System.out.print("Digite a quantidade: ");
+        int quantidade = scanner.nextInt();
+        double total = preco * quantidade;
+        System.out.println("Preço total: " + total);
+    }
+
+    public static void calcularTroco(Scanner scanner) {
+        System.out.print("Digite o valor pago: ");
+        double valorPago = scanner.nextDouble();
+        System.out.print("Digite o custo: ");
+        double custo = scanner.nextDouble();
+        double troco = valorPago - custo;
+        System.out.println("Troco: " + troco);
     }
 }
 ```
