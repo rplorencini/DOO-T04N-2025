@@ -45,7 +45,7 @@ public class Main {
 
 # Programação Declarativa
 ## O que é a programação declarativa?
-> É um paradigma com feito em o que deve ser feito, e não em como ser feito. Em vez de descrever passo a passo instruições como a anterior, o programador apenas declara a lógica do programa deixando que a implementação exata seja gerenciaada pelo compilador, interpretador ou framework.
+> É um paradigma com foco em o que deve ser feito, e não em como ser feito. Em vez de descrever passo a passo das instruições como o paradigma anterior, o programador apenas declara a lógica do programa deixando que a implementação exata seja gerenciada pelo compilador, interpretador ou framework.
 ## Exemplo de programação declarativa
 > Cálculo da área de um quadrado em prolog
 ```prolog
