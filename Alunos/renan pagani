@@ -1,0 +1,6 @@
+public class HelloWorld {
+    public static void main(String[] args) {
+        // Imprime a mensagem no console
+        System.out.println("Hello, World!");
+    }
+}
